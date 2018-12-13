@@ -1,9 +1,9 @@
 //
 //  UniversalSupport.swift
-//  SignageTv
+//  UniversalSupport
 //
 //  Created by Benoit Pereira da silva on 22/11/2018.
-//  Copyright © 2018 Lylo Media Group. All rights reserved.
+//  Copyright © 2018 https://pereira-da-silva.com. All rights reserved.
 //
 
 // UI basic universal support
