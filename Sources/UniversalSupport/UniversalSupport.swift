@@ -90,6 +90,7 @@ open class XTextField:UITextField{}
 
 open class XSecureTextField:UITextField{}
 
+
 open class XButton:UIButton{
     public  var title:String? {
         didSet{
@@ -97,6 +98,8 @@ open class XButton:UIButton{
         }
     }
 }
+
+open class XTableViewCell: UITableViewCell {}
 
 #elseif os(watchOS)
 // Not supported
@@ -280,6 +283,33 @@ open class XSecureTextField:NSSecureTextField{
 open class XButton:NSButton{
 }
 
+
+// TableViewCell support is very limited
+open class XTableViewCell: NSTableCellView{
+
+    public var accessoryType: AccessoryType = .none {
+        didSet{
+            switch accessoryType {
+            case .none:
+                self.imageView?.image = nil
+                break
+            case .disclosureIndicator:
+                self.imageView?.image = NSImage(named:NSImage.rightFacingTriangleTemplateName)
+                break
+            case .checkmark:
+                self.imageView?.image = NSImage(named: NSImage.menuOnStateTemplateName)
+                break
+            }
+        }
+    }
+
+    public enum AccessoryType : Int {
+        case none // don't show any accessory view
+        case disclosureIndicator // regular chevron. doesn't track
+        case checkmark // checkmark. doesn't track
+    }
+
+}
 #endif
 
 // MARK:- Universal global functions
