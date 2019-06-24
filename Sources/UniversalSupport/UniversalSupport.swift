@@ -45,14 +45,14 @@ public typealias XBezierPath = UIBezierPath
 public typealias XAffineTransform = CGAffineTransform
 public extension XAffineTransform{
 
-    public mutating func rotatedByDegrees(_ degrees: CGFloat) -> XAffineTransform{
+    mutating func rotatedByDegrees(_ degrees: CGFloat) -> XAffineTransform{
         let radians : Float = degreesToRadians(angle: Float(degrees))
         return self.rotated(by: CGFloat(radians) )
     }
 }
 
 public extension XRect{
-    public func clip(){
+    func clip(){
         // @todo ... use for compatibility with cocoa calls
         // Not sure it is useful
     }
@@ -62,17 +62,17 @@ public typealias XGraphicContext = CGContext
 
 public extension XGraphicContext{
 
-    public static var current:XGraphicContext? {
+    static var current:XGraphicContext? {
         return UIGraphicsGetCurrentContext()
     }
 
-    public static var currentCGContext:CGContext? { return XGraphicContext.current }
+    static var currentCGContext:CGContext? { return XGraphicContext.current }
 
-    public static  func restore(){
+    static  func restore(){
         self.current?.restoreGState()
     }
 
-    public static func save(){
+    static func save(){
         self.current?.saveGState()
     }
 
