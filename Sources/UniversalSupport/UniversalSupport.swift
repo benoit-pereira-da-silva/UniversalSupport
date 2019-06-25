@@ -147,12 +147,12 @@ public extension XStoryboardSegue{
 public typealias XBezierPath = NSBezierPath
 public extension XBezierPath{
     // iOS compatibility
-    public convenience init(roundedRect rect: XRect, cornerRadius: CGFloat){
+    convenience init(roundedRect rect: XRect, cornerRadius: CGFloat){
         self.init(roundedRect: rect, xRadius: cornerRadius, yRadius: cornerRadius)
     }
-    public func addLine(to point: CGPoint){ self.line(to:point) }
+    func addLine(to point: CGPoint){ self.line(to:point) }
 
-    public func apply(_ transform: XAffineTransform){
+    func apply(_ transform: XAffineTransform){
         self.transform(using: transform)
     }
 }
@@ -160,24 +160,24 @@ public extension XBezierPath{
 public typealias XAffineTransform = AffineTransform
 public extension XAffineTransform {
     // iOS compatibility
-    public init(translationX tx: CGFloat, y ty: CGFloat){
+    init(translationX tx: CGFloat, y ty: CGFloat){
         self.init()
         self.translate(x: tx, y: ty)
     }
 
-    public init(rotationAngle:CGFloat){
+    init(rotationAngle:CGFloat){
         self.init(rotationByDegrees: rotationAngle)
     }
-    public mutating func translatedBy(x: CGFloat, y: CGFloat) -> XAffineTransform{
+    mutating func translatedBy(x: CGFloat, y: CGFloat) -> XAffineTransform{
         self.translate(x: x, y: y)
         return self
     }
-    public mutating func scaledBy(x: CGFloat, y: CGFloat) -> XAffineTransform{
+    mutating func scaledBy(x: CGFloat, y: CGFloat) -> XAffineTransform{
         self.scale(x: x, y: y)
         return self
     }
 
-    public mutating func rotatedByDegrees(_ degrees: CGFloat) -> XAffineTransform{
+    mutating func rotatedByDegrees(_ degrees: CGFloat) -> XAffineTransform{
         self.rotate(byDegrees: degrees)
         return self
     }
@@ -187,13 +187,13 @@ public typealias XGraphicContext = NSGraphicsContext
 
 public extension XGraphicContext {
 
-    public static var currentCGContext:CGContext? { return XGraphicContext.current?.cgContext}
+    static var currentCGContext:CGContext? { return XGraphicContext.current?.cgContext}
 
 
-    public static func restore(){
+    static func restore(){
         XGraphicContext.restoreGraphicsState()
     }
-    public static func save(){
+    static func save(){
         XGraphicContext.saveGraphicsState()
     }
 }
