@@ -86,7 +86,7 @@ open class XTableView: UITableView{}
 
 open class XTextView: UITextView{}
 
-open class XLabel: UIlabel{}
+open class XLabel: UILabel{}
 
 open class XTextField:UITextField{}
 
