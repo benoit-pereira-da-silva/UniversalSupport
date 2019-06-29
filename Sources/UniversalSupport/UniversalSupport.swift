@@ -86,6 +86,8 @@ open class XTableView: UITableView{}
 
 open class XTextView: UITextView{}
 
+open class XLabel: UIlabel{}
+
 open class XTextField:UITextField{}
 
 open class XSecureTextField:UITextField{}
@@ -249,6 +251,8 @@ open class XTextView: NSTextView{
         get{ return self.string }
     }
 }
+
+open class XLabel: XTextField{}
 
 open class XTextField:NSTextField{
     /// iOS compatibility
